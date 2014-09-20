@@ -12,14 +12,19 @@ jQuery(document).ready(function($){
 			is_mobile = true;
 		}
 	
-		//シェアボタンがすでに読み込まれているか500msごとに確認し続ける
+		//シェアボタンの背景画像が設定されたかの確認を500msごとに確認し続ける
 		var checkReady = setInterval(function(){
-			if($('.shareaholic-share-buttons').length){
+			
+			var iconImage = $('i.shareaholic-service-icon').css('background-image');
+			// シェアボタンの背景画像が設定されたかの確認
+			if( iconImage && iconImage != 'none' ){
 
 				$('.shareaholic-canvas').each(function(){
 					
 					//ボタン種類の取得
 					var filename = $('li:first-child i', this).css('background-image').split('/').pop().split('.').shift();
+					console.log($('li:first-child i', this).css('background-image'));
+					console.log(filename);
 
 					//はてなボタン画像の設定
 					imgUrl = options.themePath + '/images/hatena-' + filename + '.png';
