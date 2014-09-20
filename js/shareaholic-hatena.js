@@ -12,11 +12,10 @@ jQuery(document).ready(function($){
 			is_mobile = true;
 		}
 	
-		//シェアボタンの背景画像が設定されたかの確認を500msごとに確認し続ける
 		var checkReady = setInterval(function(){
 			
+			//シェアボタンの背景画像が設定されたかの確認
 			var iconImage = $('i.shareaholic-service-icon').css('background-image');
-			// シェアボタンの背景画像が設定されたかの確認
 			if( iconImage && iconImage != 'none' ){
 
 				$('.shareaholic-canvas').each(function(){
