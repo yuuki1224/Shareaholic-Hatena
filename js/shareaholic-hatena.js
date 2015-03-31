@@ -12,18 +12,17 @@ jQuery(document).ready(function($){
 			is_mobile = true;
 		}
 	
-		var checkReady = setInterval(function(){
-			
+		var interval = setInterval(checkReady, 500);
+
+		function checkReady(){			
 			//シェアボタンの背景画像が設定されたかの確認
 			var iconImage = $('i.shareaholic-service-icon').css('background-image');
 			if( iconImage && iconImage != 'none' ){
 
 				$('.shareaholic-canvas').each(function(){
-					
+		
 					//ボタン種類の取得
 					var filename = $('li:first-child i', this).css('background-image').split('/').pop().split('.').shift();
-					console.log($('li:first-child i', this).css('background-image'));
-					console.log(filename);
 
 					//はてなボタン画像の設定
 					imgUrl = options.themePath + '/images/hatena-' + filename + '.png';
@@ -58,10 +57,10 @@ jQuery(document).ready(function($){
 				}
 
 				//確認処理の終了
-				clearInterval(checkReady);
+				clearInterval(interval);
 				
 			}
-		}, 500);
+		}
 	}
 
 });
