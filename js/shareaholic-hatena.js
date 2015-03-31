@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 		function checkReady(){			
 			//シェアボタンの背景画像が設定されたかの確認
 			var iconImage = $('i.shareaholic-service-icon').css('background-image');
-			if( iconImage && iconImage != 'none' ){
+			if( iconImage.length && iconImage != 'none' ){
 
 				$('.shareaholic-canvas').each(function(){
 		
