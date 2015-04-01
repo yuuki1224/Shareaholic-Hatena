@@ -19,6 +19,9 @@ jQuery(document).ready(function($){
 			var iconImage = $('i.shareaholic-service-icon').css('background-image');
 			if( iconImage.length && iconImage != 'none' ){
 
+				//確認処理の終了
+				clearInterval(interval);
+
 				$('.shareaholic-canvas').each(function(){
 		
 					//ボタン種類の取得
@@ -56,9 +59,6 @@ jQuery(document).ready(function($){
 					});
 				}
 
-				//確認処理の終了
-				clearInterval(interval);
-				
 			}
 		}
 	}
