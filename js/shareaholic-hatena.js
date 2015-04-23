@@ -23,16 +23,16 @@ jQuery(document).ready(function($){
 				clearInterval(interval);
 
 				$('.shareaholic-canvas').each(function(){
-		
-					//ボタン種類の取得
-					var filename = $('li:first-child i', this).css('background-image').split('/').pop().split('.').shift();
+					if (this.getAttribute('data-app') == 'share_buttons') {
+						//ボタン種類の取得
+						var filename = $('li:first-child i', this).css('background-image').split('/').pop().split('.').shift();
 
-					//はてなボタン画像の設定
-					imgUrl = options.themePath + '/images/hatena-' + filename + '.png';
+						//はてなボタン画像の設定
+						imgUrl = options.themePath + '/images/hatena-' + filename + '.png';
 
-					//はてなボタンの追加
-					$('.shareaholic-share-buttons',this).prepend('<li title="hatena" class="shareaholic-share-button"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="http://b.hatena.ne.jp/bookmarklet?url='+location.href+'" target="_blank"><i class="shareaholic-service-icon service-hatena" style="background-image:url('+imgUrl+');"></i><span class="share-button-verb"><b>Share</b></span></a></div></li>');
-
+						//はてなボタンの追加
+						$('.shareaholic-share-buttons',this).prepend('<li title="hatena" class="shareaholic-share-button"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="http://b.hatena.ne.jp/bookmarklet?url='+location.href+'" target="_blank"><i class="shareaholic-service-icon service-hatena" style="background-image:url('+imgUrl+');"></i><span class="share-button-verb"><b>Share</b></span></a></div></li>');
+					}
 				});
 
 				//カウント数を追加
